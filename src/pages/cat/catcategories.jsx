@@ -53,7 +53,7 @@ export default function Categories() {
     } catch (error) {
       console.error(error)
       dispatch(setError(true));
-      toast.error("Ошибка при обновлении категорий");
+      toast.error("eror update");
     } finally {
       dispatch(setLoading(false));
     }
@@ -70,11 +70,11 @@ export default function Categories() {
       await axiosGet.post("/api/categories", { name });
       dispatch(setName(""));
       fetchCategories();
-      toast.success("Категория добавлена");
+      toast.success("add categories");
     } catch (error) {
       console.error(error)
       dispatch(setError(true));
-      toast.error("Ошибка при добавлении");
+      toast.error("eror add");
     } finally {
       dispatch(setLoading(false));
     }
@@ -88,11 +88,11 @@ export default function Categories() {
       dispatch(setEditName(""));
       dispatch(setIdx(null));
       fetchCategories();
-      toast.info("Категория обновлена");
+      toast.info("update categories");
     } catch (error) {
         console.error(error)
       dispatch(setError(true));
-      toast.error("Ошибка при обновлении");
+      toast.error("eror update");
     } finally {
       dispatch(setLoading(false));
     }
@@ -103,11 +103,11 @@ export default function Categories() {
     try {
       await axiosGet.delete(`/api/categories?id=${id}`);
       fetchCategories();
-      toast.warn("Категория удалена");
+      toast.warn("delete categories");
     } catch (error) {
         console.error(error)
       dispatch(setError(true));
-      toast.error("Ошибка при удалении");
+      toast.error("eror delete");
     } finally {
       dispatch(setLoading(false));
     }
@@ -122,7 +122,7 @@ export default function Categories() {
     } catch (error) {
         console.error(error)
       dispatch(setError(true));
-      toast.error("Ошибка при получении данных");
+      toast.error("eror data");
     } finally {
       dispatch(setLoading(false));
     }
@@ -132,35 +132,35 @@ export default function Categories() {
     <>
       <Box sx={{ p: 4 }}>
         <Typography variant="h4" gutterBottom color="primary">
-          Категории (таблица задач)
+        page create async-thunk-categories
         </Typography>
 
         <Paper elevation={3} sx={{ p: 3, mb: 4 }}>
           <Typography variant="h6" gutterBottom>Добавить категорию</Typography>
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2} alignItems="center">
             <TextField
-              label="Новая категория"
+              label="new categories"
               value={name}
               onChange={(e) => dispatch(setName(e.target.value))}
               fullWidth
             />
             <Button variant="contained" startIcon={<Add />} onClick={handleAdd}>
-              Добавить
+            +add
             </Button>
           </Stack>
         </Paper>
 
         <Paper elevation={3} sx={{ p: 3, mb: 4 }}>
-          <Typography variant="h6" gutterBottom>Редактировать категорию</Typography>
+          <Typography variant="h6" gutterBottom>edit categories</Typography>
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2} alignItems="center">
             <TextField
-              label="Название категории"
+              label="name categories"
               value={editName}
               onChange={(e) => dispatch(setEditName(e.target.value))}
               fullWidth
             />
             <Button variant="outlined" startIcon={<Edit />} onClick={handleEdit}>
-              Сохранить
+              save
             </Button>
           </Stack>
         </Paper>
@@ -170,8 +170,8 @@ export default function Categories() {
             <TableHead>
               <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
                 <TableCell><strong>ID</strong></TableCell>
-                <TableCell><strong>Название</strong></TableCell>
-                <TableCell align="right"><strong>Действия</strong></TableCell>
+                <TableCell><strong>name</strong></TableCell>
+                <TableCell align="right"><strong>events</strong></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -180,12 +180,12 @@ export default function Categories() {
                   <TableCell>{el.id}</TableCell>
                   <TableCell>{el.name}</TableCell>
                   <TableCell align="right">
-                    <Tooltip title="Инфо">
+                    <Tooltip title="info">
                       <IconButton onClick={() => handleInfo(el.id)} color="primary">
                         <Info />
                       </IconButton>
                     </Tooltip>
-                    <Tooltip title="Редактировать">
+                    <Tooltip title="edit">
                       <IconButton
                         onClick={() => {
                           dispatch(setEditName(el.name));
@@ -196,7 +196,7 @@ export default function Categories() {
                         <Edit />
                       </IconButton>
                     </Tooltip>
-                    <Tooltip title="Удалить">
+                    <Tooltip title="delete">
                       <IconButton onClick={() => handleDelete(el.id)} color="error">
                         <Delete />
                       </IconButton>
@@ -209,13 +209,13 @@ export default function Categories() {
         </TableContainer>
 
         <Dialog open={modal} onClose={() => dispatch(setModal(false))}>
-          <DialogTitle>Информация о категории</DialogTitle>
+          <DialogTitle>info categories</DialogTitle>
           <DialogContent dividers>
             <Typography><strong>ID:</strong> {info?.id}</Typography>
-            <Typography><strong>Название:</strong> {info?.name}</Typography>
+            <Typography><strong>name:</strong> {info?.name}</Typography>
           </DialogContent>
           <DialogActions>
-            <Button onClick={() => dispatch(setModal(false))}>Закрыть</Button>
+            <Button onClick={() => dispatch(setModal(false))}>close</Button>
           </DialogActions>
         </Dialog>
 
@@ -227,7 +227,7 @@ export default function Categories() {
 
         {error && (
           <Alert severity="error" sx={{ mt: 4 }}>
-            Ошибка загрузки данных
+  eror data
           </Alert>
         )}
       </Box>

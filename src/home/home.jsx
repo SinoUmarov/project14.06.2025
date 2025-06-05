@@ -26,10 +26,10 @@ export default function Home() {
 
       <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} mt={4}>
         <Button variant="contained" size="large" onClick={() => navigate('/todo')}>
-          Перейти к задачам
+         todo
         </Button>
         <Button variant="outlined" size="large" onClick={() => navigate('/categories')}>
-          Перейти к категориям
+         catigories
         </Button>
       </Stack>
     </Box>

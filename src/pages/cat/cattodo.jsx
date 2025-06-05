@@ -1,6 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { axiosGet } from "../../utils/myaxios";
 import { useEffect } from "react";
+import AutoDeleteIcon from '@mui/icons-material/AutoDelete';
+
+import EditIcon from '@mui/icons-material/Edit';
+import InfoIcon from '@mui/icons-material/Info';
+import ImageIcon from '@mui/icons-material/Image';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import {
   setTodo,
   setName,
@@ -223,7 +229,7 @@ export default function Todo() {
 
   return (
     <>
-      <h1>Todo List</h1>
+      <h1>pagecreate-async-thunk-todo</h1>
 
       {/* Add Todo Section */}
       <Box sx={{ display: "flex", gap: 2, mb: 3 }}>
@@ -264,7 +270,7 @@ export default function Todo() {
           variant="outlined"
         />
         <Button onClick={editUser} variant="contained">
-          Edit Todo
+          <EditIcon/>
         </Button>
       </Box>
 
@@ -294,19 +300,19 @@ export default function Todo() {
                 </TableCell>
                 <TableCell>
                   <Button onClick={() => handleDelete(el.id)} color="error" size="small">
-                    Delete
+                    <AutoDeleteIcon/>
                   </Button>
                   <Button onClick={() => handleCheck(el.id)} color="primary" size="small">
-                    Check
+                    <CheckCircleOutlineIcon/>
                   </Button>
                   <Button onClick={() => handleEdit(el)} color="secondary" size="small">
-                    Edit
+                    <EditIcon/>
                   </Button>
                   <Button onClick={() => handleInfo(el)} color="info" size="small">
-                    Info
+                    <InfoIcon/>
                   </Button>
                   <Button onClick={() => handleAddImage(el)} size="small">
-                    Add Image
+                    <ImageIcon/>
                   </Button>
                 </TableCell>
               </TableRow>

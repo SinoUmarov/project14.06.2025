@@ -1,6 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { axiosGet } from "../../utils/myaxios";
 import { useEffect } from "react";
+import AutoDeleteIcon from '@mui/icons-material/AutoDelete';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import EditIcon from '@mui/icons-material/Edit';
+import InfoIcon from '@mui/icons-material/Info';
+import ImageIcon from '@mui/icons-material/Image';
 import {
   setTodo,
   setName,
@@ -229,7 +234,7 @@ export default function Todo() {
   return (
     <Container maxWidth="md" sx={{ mt: 4 }}>
       <Typography variant="h4" mb={3}>
-        Page Rtc Query Todo
+        Page Rtq Query Todo
       </Typography>
 
       {/* Add todo */}
@@ -249,7 +254,7 @@ export default function Todo() {
           sx={{ flexGrow: 2, minWidth: 250 }}
         />
         <Button variant="contained" component="label" sx={{ mr: 1 }}>
-          Upload Image
+          < ImageIcon/>
           <input
             type="file"
             hidden
@@ -284,7 +289,7 @@ export default function Todo() {
           onClick={editUser}
           disabled={idx === null}
         >
-          Edit
+          <EditIcon />
         </Button>
       </Box>
 
@@ -313,25 +318,25 @@ export default function Todo() {
                     variant="outlined"
                     onClick={() => handleDelete(el.id)}
                   >
-                    Delete
+                  <AutoDeleteIcon />
                   </Button>
                   <Button
                     variant="outlined"
                     onClick={() => handleCheck(el.id)}
                   >
-                    Check
+                    < CheckCircleIcon />
                   </Button>
                   <Button variant="outlined" onClick={() => handleEdit(el)}>
-                    Edit
+                    <EditIcon />
                   </Button>
                   <Button variant="outlined" onClick={() => handleInfo(el)}>
-                    Info
+                    < InfoIcon />
                   </Button>
                   <Button
                     variant="outlined"
                     onClick={() => handleAddImage(el)}
                   >
-                    Add Image
+                    < ImageIcon />
                   </Button>
                   <Link to={`/rtctodo/${el.id}`} style={{ textDecoration: "none" }}>
                     <Button variant="outlined">Info by ID</Button>
@@ -370,7 +375,7 @@ export default function Todo() {
                         borderRadius: "50%",
                       }}
                     >
-                      🗑️
+               <AutoDeleteIcon />
                     </Button>
                   </Box>
                 ))}

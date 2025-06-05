@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { axiosGet } from "../../utils/myaxios";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import ImageIcon from '@mui/icons-material/Image';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+
 import {
   setTodo,
   setName,
@@ -41,7 +46,7 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import InfoIcon from "@mui/icons-material/Info";
-import CheckIcon from "@mui/icons-material/Check";
+
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 
 import { toast, ToastContainer } from "react-toastify";
@@ -234,7 +239,7 @@ export default function Todo() {
   return (
     <Container sx={{ mt: 4 }}>
       <Typography variant="h4" gutterBottom>
-        Page Todo
+        Page classic todo
       </Typography>
 
       {/* Add Todo Form */}
@@ -259,7 +264,7 @@ export default function Todo() {
           sx={{ flex: "2 1 300px" }}
         />
         <Button variant="contained" component="label">
-          Upload Image
+          <ImageIcon/>
           <input
             type="file"
             hidden
@@ -267,7 +272,7 @@ export default function Todo() {
           />
         </Button>
         <Button variant="contained" onClick={handleAdd}>
-          Add +
+          <AddBoxIcon/>
         </Button>
       </Box>
 
@@ -293,7 +298,7 @@ export default function Todo() {
           sx={{ flex: "2 1 300px" }}
         />
         <Button variant="outlined" onClick={editUser}>
-          Edit
+          <EditIcon />
         </Button>
       </Box>
 
@@ -358,7 +363,7 @@ export default function Todo() {
                   onClick={() => handleDelete(el.id)}
                   sx={{ mr: 1 }}
                 >
-                  Delete
+                  <DeleteForeverIcon/>
                 </Button>
                 <Button
                   variant="outlined"
@@ -367,7 +372,7 @@ export default function Todo() {
                   onClick={() => handleCheck(el.id)}
                   sx={{ mr: 1 }}
                 >
-                  Check
+                  <CheckBoxIcon />
                 </Button>
                 <Button
                   variant="outlined"
@@ -375,7 +380,7 @@ export default function Todo() {
                   onClick={() => handleEdit(el)}
                   sx={{ mr: 1 }}
                 >
-                  Edit
+                  <EditIcon/>
                 </Button>
                 <Button
                   variant="outlined"
@@ -383,7 +388,7 @@ export default function Todo() {
                   onClick={() => handleInfo(el)}
                   sx={{ mr: 1 }}
                 >
-                  Info
+                <InfoIcon/>
                 </Button>
                 <Button
                   variant="outlined"
@@ -391,7 +396,7 @@ export default function Todo() {
                   startIcon={<AddPhotoAlternateIcon />}
                   onClick={() => handleAddImage(el.id)}
                 >
-                  Add Image
+                  <InfoIcon/>
                 </Button>
               </TableCell>
             </TableRow>
@@ -422,7 +427,7 @@ export default function Todo() {
           align="center"
           sx={{ mt: 4, mb: 4 }}
         >
-          ERROR 😶‍🌫️
+          ERROR 
         </Typography>
       )}
 

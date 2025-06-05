@@ -3,12 +3,13 @@ import { AppBar, Toolbar, Button, Box } from "@mui/material";
 
 const navItems = [
   { label: "Home", path: "/" },
+    { label: "C-a-thunkTodo", path: "/cattodo" },
+  { label: "C-a-thunkCategories", path: "/catcategories" },
+   { label: "Rtqategories", path: "/rtccategories" },
+  { label: "RtqTodo", path: "/rtctodo" },
   { label: "classCategories", path: "/categories" },
   { label: "classTodo", path: "/todo" },
-  { label: "C-a-thunkTodo", path: "/cattodo" },
-  { label: "C-a-thunkCategories", path: "/catcategories" },
-  { label: "Rtqategories", path: "/rtccategories" },
-  { label: "RtqTodo", path: "/rtctodo" }
+ 
 ];
 
 export default function Header() {

@@ -6,6 +6,11 @@ import {
   useDeleteCategoryMutation,
   useGetCategoryByIdQuery,
 } from "../../store/reducers/rtccategoriesApi";
+import AutoDeleteIcon from '@mui/icons-material/AutoDelete';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import EditIcon from '@mui/icons-material/Edit';
+import InfoIcon from '@mui/icons-material/Info';
+import SaveAltIcon from '@mui/icons-material/SaveAlt';
 
 import {
   Container,
@@ -70,7 +75,7 @@ export default function Categories() {
   return (
     <Container maxWidth="sm" sx={{ mt: 5 }}>
       <Typography variant="h4" gutterBottom>
-        Page Rtc Query Categories
+        Page Rtq Query Categories
       </Typography>
 
       {/* Add new category */}
@@ -84,7 +89,7 @@ export default function Categories() {
           onKeyDown={(e) => e.key === 'Enter' && handleAdd()}
         />
         <Button variant="contained" onClick={handleAdd}>
-          Add +
+        <AddBoxIcon/>
         </Button>
       </Box>
 
@@ -105,7 +110,7 @@ export default function Categories() {
           disabled={idx === null}
           color="primary"
         >
-          Save
+          <SaveAltIcon/>
         </Button>
       </Box>
 
@@ -116,7 +121,7 @@ export default function Categories() {
         </Box>
       ) : isError ? (
         <Typography variant="h5" color="error" align="center" mt={5}>
-          ERROR 😶‍🌫️
+          ERROR 
         </Typography>
       ) : (
         <List>
@@ -137,17 +142,17 @@ export default function Categories() {
                     onClick={() => handleDelete(el.id)}
                     sx={{ mr: 1 }}
                   >
-                    Del
+                    <AutoDeleteIcon/>
                   </Button>
                   <Button
                     variant="outlined"
                     onClick={() => openEdit(el)}
                     sx={{ mr: 1 }}
                   >
-                    Edit
+                    <EditIcon/>
                   </Button>
                   <Button variant="contained" onClick={() => openInfo(el.id)}>
-                    Info
+                    <InfoIcon/>
                   </Button>
                 </>
               }

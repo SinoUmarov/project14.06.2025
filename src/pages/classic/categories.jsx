@@ -1,6 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { axiosGet } from "../../utils/myaxios";
 import { useEffect } from "react";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import InfoOutlineIcon from '@mui/icons-material/InfoOutline';
+import SaveAltIcon from '@mui/icons-material/SaveAlt';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 import {
   setName,
   setTodo,
@@ -133,7 +138,7 @@ export default function Categories() {
 
   return (
     <>
-      <h1 style={{ fontSize: "32px", marginBottom: "20px" }}>Page Categories</h1>
+      <h1 style={{ fontSize: "32px", marginBottom: "20px" }}>Page classic categories</h1>
 
       {/* Add Category Section */}
       <Box sx={{ display: "flex", gap: 2, marginBottom: 3 }}>
@@ -149,7 +154,7 @@ export default function Categories() {
           variant="contained"
           sx={{ padding: "10px 20px", fontSize: "16px" }}
         >
-          Add Category
+          <AddBoxIcon/>
         </Button>
       </Box>
 
@@ -167,7 +172,7 @@ export default function Categories() {
           variant="contained"
           sx={{ padding: "10px 20px", fontSize: "16px" }}
         >
-          Save Changes
+          <SaveAltIcon/>
         </Button>
       </Box>
 
@@ -208,7 +213,7 @@ export default function Categories() {
                   size="small"
                   sx={{ marginRight: 1 }}
                 >
-                  Delete
+                  <DeleteIcon/>
                 </Button>
                 <Button
                   onClick={() => editUser(el)}
@@ -217,7 +222,7 @@ export default function Categories() {
                   size="small"
                   sx={{ marginRight: 1 }}
                 >
-                  Edit
+                  <EditIcon/>
                 </Button>
                 <Button
                   onClick={() => handleInfo(el.id)}
@@ -225,7 +230,7 @@ export default function Categories() {
                   color="info"
                   size="small"
                 >
-                  Info
+                  <InfoOutlineIcon/>
                 </Button>
               </Box>
             </Box>

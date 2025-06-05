@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { axiosGet } from "../../utils/myaxios";
 import { useEffect } from "react";
-import AutoDeleteIcon from '@mui/icons-material/AutoDelete';
+import AutoDeleteIcon from "@mui/icons-material/AutoDelete";
 
-import EditIcon from '@mui/icons-material/Edit';
-import InfoIcon from '@mui/icons-material/Info';
-import ImageIcon from '@mui/icons-material/Image';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import EditIcon from "@mui/icons-material/Edit";
+import InfoIcon from "@mui/icons-material/Info";
+import ImageIcon from "@mui/icons-material/Image";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import {
   setTodo,
   setName,
@@ -112,7 +112,7 @@ export default function Todo() {
     }
 
     try {
-      const res= await axiosGet.post(`/api/to-dos/${imgid}/images`, formData);
+      const res = await axiosGet.post(`/api/to-dos/${imgid}/images`, formData);
       getTodo();
       dispatch(setImgImage(null));
       dispatch(setmodaladd(false));
@@ -214,7 +214,9 @@ export default function Todo() {
 
   async function handleDelImage(id) {
     try {
-      await axios.delete(`https://to-dos-api.softclub.tj/api/to-dos/images/${id}`);
+      await axios.delete(
+        `https://to-dos-api.softclub.tj/api/to-dos/images/${id}`
+      );
       getTodo();
       handleToast("Image deleted successfully", "success");
     } catch (error) {
@@ -270,7 +272,7 @@ export default function Todo() {
           variant="outlined"
         />
         <Button onClick={editUser} variant="contained">
-          <EditIcon/>
+          <EditIcon />
         </Button>
       </Box>
 
@@ -288,6 +290,16 @@ export default function Todo() {
           <TableBody>
             {todo.map((el) => (
               <TableRow key={el.id}>
+                {/*кардам ошибка дод eror 400  */}
+                {/* <TableCell>
+                  {todo.images?.map((image) => {
+                    return (
+                      <div key={image.id}>
+                        src={`https://to-dos-api.softclub.tj/images/${image.imageName}`}
+                      </div>
+                    );
+                  })}
+                </TableCell> */}
                 <TableCell>{el.name}</TableCell>
                 <TableCell>{el.description}</TableCell>
                 <TableCell
@@ -298,21 +310,38 @@ export default function Todo() {
                 >
                   {el.isCompleted ? "Completed" : "Inactive"}
                 </TableCell>
+                <TableCell></TableCell>
                 <TableCell>
-                  <Button onClick={() => handleDelete(el.id)} color="error" size="small">
-                    <AutoDeleteIcon/>
+                  <Button
+                    onClick={() => handleDelete(el.id)}
+                    color="error"
+                    size="small"
+                  >
+                    <AutoDeleteIcon />
                   </Button>
-                  <Button onClick={() => handleCheck(el.id)} color="primary" size="small">
-                    <CheckCircleOutlineIcon/>
+                  <Button
+                    onClick={() => handleCheck(el.id)}
+                    color="primary"
+                    size="small"
+                  >
+                    <CheckCircleOutlineIcon />
                   </Button>
-                  <Button onClick={() => handleEdit(el)} color="secondary" size="small">
-                    <EditIcon/>
+                  <Button
+                    onClick={() => handleEdit(el)}
+                    color="secondary"
+                    size="small"
+                  >
+                    <EditIcon />
                   </Button>
-                  <Button onClick={() => handleInfo(el)} color="info" size="small">
-                    <InfoIcon/>
+                  <Button
+                    onClick={() => handleInfo(el)}
+                    color="info"
+                    size="small"
+                  >
+                    <InfoIcon />
                   </Button>
                   <Button onClick={() => handleAddImage(el)} size="small">
-                    <ImageIcon/>
+                    <ImageIcon />
                   </Button>
                 </TableCell>
               </TableRow>
@@ -322,7 +351,9 @@ export default function Todo() {
       </TableContainer>
 
       {/* Loading Spinner */}
-      {loading && <CircularProgress sx={{ display: "block", margin: "auto", mt: 4 }} />}
+      {loading && (
+        <CircularProgress sx={{ display: "block", margin: "auto", mt: 4 }} />
+      )}
 
       {/* Error Message */}
       {error && <h3 style={{ textAlign: "center" }}>An error occurred!</h3>}
@@ -355,7 +386,11 @@ export default function Todo() {
             <b>{info?.name}</b> <br />
             <b>{info?.description}</b>
             <br />
-            <Button onClick={() => dispatch(setModal(false))} variant="outlined" sx={{ mt: 2 }}>
+            <Button
+              onClick={() => dispatch(setModal(false))}
+              variant="outlined"
+              sx={{ mt: 2 }}
+            >
               Close
             </Button>
           </Box>

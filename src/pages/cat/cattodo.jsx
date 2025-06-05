@@ -300,6 +300,7 @@ export default function Todo() {
                     );
                   })}
                 </TableCell> */}
+                {/* дизайнш ба mui */}
                 <TableCell>{el.name}</TableCell>
                 <TableCell>{el.description}</TableCell>
                 <TableCell

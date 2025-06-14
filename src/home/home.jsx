@@ -17,11 +17,11 @@ export default function Home() {
       }}
     >
       <Typography variant="h2" gutterBottom>
-        Добро пожаловать в Todo App exam Umarov Sino!
+        Добро пожаловать в Todo App  Umarov Sino!
       </Typography>
 
       <Typography variant="h5" color="text.secondary" gutterBottom>
-        дар инчо ту метавони бо проект шинос шави
+        проекти todo asyncroni 14.06.2025
       </Typography>
 
       <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} mt={4}>

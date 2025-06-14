@@ -15,13 +15,10 @@ export function AppRouter() {
             <Header />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/categories" element={<Categories />} />
-                <Route path="/todo" element={<Todo />} />
                 <Route path="/cattodo" element={<CatTodo />} />
                 <Route path="/catcategories" element={<CatCategories />} />
-                <Route path="/rtccategories" element={<Rtccategories/>}></Route>
-                <Route path="/rtctodo" element={<Rtqtodo/>}></Route>
-                <Route path="/rtctodo/:id" element={<InfoById/>}></Route>
+               
+             
             </Routes>
         </BrowserRouter>
     );

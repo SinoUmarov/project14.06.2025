@@ -25,10 +25,10 @@ export default function Home() {
       </Typography>
 
       <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} mt={4}>
-        <Button variant="contained" size="large" onClick={() => navigate('/todo')}>
+        <Button variant="contained" size="large" onClick={() => navigate('./cattodo')}>
          todo
         </Button>
-        <Button variant="outlined" size="large" onClick={() => navigate('/categories')}>
+        <Button variant="outlined" size="large" onClick={() => navigate('/catcategories')}>
          catigories
         </Button>
       </Stack>
